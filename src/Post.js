@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Post({ title, body, author }) {
+export default function Post({
+  title, body, author,
+}) {
   return (
     <>
       <div>
-        {title}
+        {author}
       </div>
       <div>
-        {author}
+        {title}
       </div>
       <div>
         {body}

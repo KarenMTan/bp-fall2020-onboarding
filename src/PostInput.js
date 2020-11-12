@@ -8,8 +8,13 @@ export default function PostInput() {
     author: '',
   });
 
-  function addToFirebase() {
-    firebase.firestore().collection('posts').add(post);
+  async function addToFirebase() {
+    const postCollection = firebase.firestore().collection('posts');
+    // remember that writing to the server is an asynchronous action!
+    const doc = await postCollection.add(post);
+    postCollection.doc(doc.id).update({
+      date: firebase.firestore.FieldValue.serverTimestamp(),
+    });
   }
 
   return (
