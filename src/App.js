@@ -36,6 +36,7 @@ function App() {
           title={post.title}
           body={post.body}
           author={post.author}
+          date={post.date.toDate().toDateString()}
         />
       ))}
       <PostInput />
