@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-export default function Post() {
+export default function Post({ prepend }) {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function Post() {
   return (
     <>
       <div>
-        {counter}
+        {prepend + counter}
       </div>
       <button
         type="button"
@@ -21,3 +22,11 @@ export default function Post() {
     </>
   );
 }
+
+Post.propTypes = {
+  prepend: PropTypes.string,
+};
+
+Post.defaultProps = {
+  prepend: '',
+};

@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <>
-      <Post />
+      <Post prepend="Counter:" />
       <Post />
       <Post />
       <Post />
