@@ -1,32 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
-export default function Post({ prepend }) {
-  const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    document.title = `The current counter is ${counter}`;
-  }, [counter]);
-
+export default function Post() {
+  const [text, setText] = useState('');
   return (
     <>
       <div>
-        {prepend + counter}
+        {text}
       </div>
-      <button
-        type="button"
-        onClick={() => { setCounter(counter + 1); }}
-      >
-        Click me!
-      </button>
+      <input onChange={(e) => { setText(e.target.value); }} />
     </>
   );
 }
-
-Post.propTypes = {
-  prepend: PropTypes.string,
-};
-
-Post.defaultProps = {
-  prepend: '',
-};
