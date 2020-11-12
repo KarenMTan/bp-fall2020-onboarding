@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Post() {
-  const [text, setText] = useState('');
-  const [hiddenText, setHiddenText] = useState('');
+export default function Post({ title, body, author }) {
   return (
     <>
       <div>
-        {text}
+        {title}
       </div>
-      <input onChange={(e) => { setHiddenText(e.target.value); }} />
-      <button
-        type="button"
-        onClick={() => { setText(hiddenText); }}
-      >
-        Submit
-      </button>
+      <div>
+        {author}
+      </div>
+      <div>
+        {body}
+      </div>
     </>
   );
 }
+
+Post.propTypes = {
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+};
